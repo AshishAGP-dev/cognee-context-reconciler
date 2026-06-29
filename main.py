@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-async def run_sprint2():
-    print("--- Starting Sprint 2: Ingestion Pipeline ---")
+async def run_ingestion():
+    print("--- Starting: Ingestion Pipeline ---")
     
     # Prune existing data so we can run this script multiple times safely
     print("Cleaning the slate...")
@@ -31,4 +31,4 @@ async def run_sprint2():
     print("Cognee has successfully mapped the 2025 policy into its memory layer.")
 
 if __name__ == "__main__":
-    asyncio.run(run_sprint2())
+    asyncio.run(run_ingestion())
