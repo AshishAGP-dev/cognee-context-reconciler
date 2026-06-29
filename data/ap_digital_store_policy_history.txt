@@ -1,0 +1,17 @@
+================================================================================
+AP DIGITAL STORE - CORPORATE POLICY ARCHIVE (2023 - 2026)
+================================================================================
+
+Document ID: POL-8891-B
+Last Updated: May 2026
+Prepared by: Human Resources & Engineering Ops
+
+--- SECTION 1: WORK ARRANGEMENTS & HOURS ---
+[Effective March 15, 2023]
+All employees of AP Digital Store must work from the physical office 5 days a week. Remote work is strictly prohibited to ensure team synergy during our startup phase. Core hours are 9:00 AM to 5:00 PM.
+
+[Effective January 10, 2025]
+Official Company Policy: Software Engineers are now allowed 100% remote work permanently due to the successful rollout of our asynchronous workflow tools. There are no mandatory in-office days for the engineering department.
+
+[Effective June 1, 2026]
+EMERGENCY MANDATE: As of June 2026, remote work is entirely banned for all software engineers. They are strictly required to return to the office full-time. The 2025 remote policy is completely nullified. 
