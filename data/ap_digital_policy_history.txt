@@ -1,0 +1,25 @@
+AP Digital Store - Policy History Archive
+
+[Date: 2023-01-15]
+Policy: Employees are permitted to work remotely up to 3 days per week. 
+Status: Superseded.
+
+[Date: 2024-05-20]
+Policy: Software engineers are encouraged to use deep class inheritance structures to maintain code modularity. 
+Status: Superseded.
+
+[Date: 2025-02-10]
+Policy: Office cafeteria now permits casual chess games during lunch hours, provided they do not disrupt the workspace.
+Status: Active.
+
+[Date: 2026-06-01]
+Policy: Remote work is entirely banned for all software engineers. All staff are strictly required to return to the office full-time.
+Status: Active (Current).
+
+[Date: 2026-06-05]
+Policy: Development standards update. All new Python projects must prioritize object composition over deep class inheritance to prevent maintenance debt.
+Status: Active (Current).
+
+[Date: 2026-06-15]
+Policy: New dietary guidelines for the cafeteria. To improve focus, heavy meals such as mutton will no longer be served on Fridays. Additionally, consumption of mangoes after heavy meat-based dishes is discouraged to prevent digestive issues.
+Status: Active (Current).
