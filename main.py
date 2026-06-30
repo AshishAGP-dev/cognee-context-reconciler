@@ -8,6 +8,16 @@ load_dotenv()
 
 async def run_reconciler():
     print("--- Sprint 3: The Context Reconciler Engine ---")
+
+    # 1. Clean the database
+    print("\nCleaning database...")
+    await cognee.prune.prune_data()
+    await cognee.prune.prune_system(metadata=True)
+    
+    # 2. Add and process the data (REQUIRED after pruning)
+    print("Ingesting AP Digital Store Policy History...")
+    await cognee.add("data/ap_digital_store_policy_history.txt")
+    await cognee.cognify(chunks_per_batch=2)
     
     # 1. The User's Question
     query = "What is the company policy on remote work for software engineers?"
@@ -47,7 +57,8 @@ async def run_reconciler():
     
     # 4. Generate the final reconciled answer
     response = completion(
-        model=os.getenv("LLM_MODEL", "gemini/gemini-2.5-flash"),
+        model="ollama/llama3.2:1b", 
+        api_base=os.getenv("LLM_ENDPOINT", "http://localhost:11434"),
         messages=[{"role": "user", "content": reconciler_prompt}]
     )
     
