@@ -1,10 +1,11 @@
 import os
 import asyncio
-import cognee
-from litellm import completion
 from dotenv import load_dotenv
 
 load_dotenv()
+
+import cognee
+from litellm import completion
 
 async def run_reconciler():
     print("--- Sprint 3: The Context Reconciler Engine ---")
@@ -17,7 +18,25 @@ async def run_reconciler():
     # 2. Add and process the data (REQUIRED after pruning)
     print("Ingesting AP Digital Store Policy History...")
     await cognee.add("data/ap_digital_store_policy_history.txt")
-    await cognee.cognify(chunks_per_batch=2)
+    
+    # Import the raw cognify function and the task list
+    from cognee.api.v1.cognify.cognify import cognify
+    from cognee.modules.pipelines.tasks import get_default_tasks
+
+    # Get the default tasks and filter out the failing graph/summarize task
+    default_tasks = get_default_tasks()
+    manual_tasks = [task for task in default_tasks if task.__name__ != "extract_graph_and_summarize"]
+
+    # Run cognify with our manually filtered list
+    await cognify(tasks=manual_tasks)
+
+#    # Manually execute ONLY the tasks we need, skipping summarization
+#     from cognee.api.v1.cognify.cognify import cognify
+#     await cognify(tasks=[
+#         "classify_documents",
+#         "extract_chunks_from_documents",
+#         "vector_indexing", 
+#     ])
     
     # 1. The User's Question
     query = "What is the company policy on remote work for software engineers?"
@@ -57,7 +76,7 @@ async def run_reconciler():
     
     # 4. Generate the final reconciled answer
     response = completion(
-        model="ollama/llama3.2:1b", 
+        model="ollama/qwen2.5:3b", 
         api_base=os.getenv("LLM_ENDPOINT", "http://localhost:11434"),
         messages=[{"role": "user", "content": reconciler_prompt}]
     )
